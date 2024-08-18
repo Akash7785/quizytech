@@ -4,7 +4,7 @@ const { default: axiosInstance } = require(".");
 export const addReport = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      "/api/reports/add-report",
+      `${process.env.REACT_APP_BASE_URL}/api/reports/add-report`,
       payload
     );
     return response.data;
@@ -17,7 +17,7 @@ export const addReport = async (payload) => {
 export const getAllReportsByUser = async () => {
   try {
     const response = await axiosInstance.post(
-      "/api/reports/get-all-reports-by-user"
+      `${process.env.REACT_APP_BASE_URL}/api/reports/get-all-reports-by-user`
     );
     return response.data;
   } catch (error) {
