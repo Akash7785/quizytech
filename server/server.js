@@ -4,7 +4,7 @@ const cors = require("cors");
 
 require("dotenv").config();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" }));
 const dbConfig = require("./config/dbConfig");
 
 const usersRoute = require("./routes/usersRoute");
