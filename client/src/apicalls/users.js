@@ -3,7 +3,7 @@ const { default: axiosInstance } = require(".");
 export const registerUser = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      `${process.env.REACT_APP_BASE_URL}/api/users/register`,
+      "https://quizytech-akash7785s-projects.vercel.app/api/users/register",
       payload
     );
     return response.data;
@@ -15,7 +15,7 @@ export const registerUser = async (payload) => {
 export const loginUser = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      `${process.env.REACT_APP_BASE_URL}/api/users/login`,
+      "https://quizytech-akash7785s-projects.vercel.app/api/users/login",
       payload
     );
     return response.data;
@@ -27,7 +27,7 @@ export const loginUser = async (payload) => {
 export const getUserInfo = async () => {
   try {
     const response = await axiosInstance.post(
-      `${process.env.REACT_APP_BASE_URL}/api/users/get-user-info`
+      "https://quizytech-akash7785s-projects.vercel.app/api/users/get-user-info"
     );
     return response.data;
   } catch (error) {

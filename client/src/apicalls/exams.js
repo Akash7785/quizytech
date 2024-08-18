@@ -4,7 +4,7 @@ const { default: axiosInstance } = require(".");
 export const getAllExams = async () => {
   try {
     const response = await axiosInstance.post(
-      `${process.env.REACT_APP_BASE_URL}/api/exams/get-all-exams`
+      "https://quizytech-akash7785s-projects.vercel.app/api/exams/get-all-exams"
     );
     return response.data;
   } catch (error) {
@@ -17,7 +17,7 @@ export const getAllExams = async () => {
 export const getExamById = async (payload) => {
   try {
     const response = await axiosInstance.post(
-      `${process.env.REACT_APP_BASE_URL}/api/exams/get-exam-by-id`,
+      "https://quizytech-akash7785s-projects.vercel.app/api/exams/get-exam-by-id",
       payload
     );
     return response.data;
