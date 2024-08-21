@@ -60,9 +60,7 @@ router.post("/login", async (req, res) => {
         .send({ message: "Invalid password", success: false });
     }
 
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1d",
-    });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
 
     res.send({
       message: "User logged in successfully",

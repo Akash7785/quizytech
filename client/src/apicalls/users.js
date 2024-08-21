@@ -18,6 +18,7 @@ export const loginUser = async (payload) => {
       "https://quizytech-akash7785s-projects.vercel.app/api/users/login",
       payload
     );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     return error.response.data;

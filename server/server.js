@@ -4,7 +4,7 @@ const cors = require("cors");
 
 require("dotenv").config();
 app.use(express.json());
-app.use(cors({ origin: "https://quizytech-app.vercel.app/" }));
+app.use(cors());
 const dbConfig = require("./config/dbConfig");
 
 const usersRoute = require("./routes/usersRoute");
