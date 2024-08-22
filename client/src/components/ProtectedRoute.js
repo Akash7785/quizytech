@@ -1,12 +1,11 @@
 import { message } from "antd";
 import React, { useEffect, useState } from "react";
 import { getUserInfo } from "../apicalls/users";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SetUser } from "../redux/usersSlice.js";
 import { useNavigate } from "react-router-dom";
 
 function ProtectedRoute({ children }) {
-  const { user } = useSelector((state) => state.users);
   const [menu, setMenu] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -61,53 +60,27 @@ function ProtectedRoute({ children }) {
     }
   }, []);
 
-  const activeRoute = window.location.pathname;
-
-  const getIsActiveOrNot = (paths) => {
-    if (paths.includes(activeRoute)) {
-      return true;
-    } else {
-      if (paths.includes("/user/write-exam")) {
-        return true;
-      }
-    }
-    return false;
-  };
-
   return (
-    <div className="layout">
-      <div className="flex gap-2 w-full h-full h-100">
-        <div className="sidebar">
-          <div className="menu">
-            {menu.map((item, index) => {
-              return (
-                <div
-                  className={`menu-item ${
-                    getIsActiveOrNot(item.paths) && "active-menu-item"
-                  }`}
-                  key={index}
-                  onClick={item.onClick}
-                >
-                  {item.icon}
-                  <span>{item.title}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        <div className="body">
-          <div className="header flex justify-between">
-            <h1 className="text-2xl text-white">QUIZYTECH</h1>
-            <div>
-              <div className="flex gap-1 items-center">
-                <h1 className="text-md text-white">{user?.name}</h1>
+    <>
+      <div className="max-sm:sticky max-sm:top-0">
+        <div className="bg-[#624F8C] w-full h-20 flex ">
+          {menu.map((item, index) => {
+            return (
+              <div className="menu-item" key={index} onClick={item.onClick}>
+                {item.icon}
+                <span>{item.title}</span>
               </div>
-            </div>
-          </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="layout">
+        <div className="body">
           <div className="content">{children}</div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

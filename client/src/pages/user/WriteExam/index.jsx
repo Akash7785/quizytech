@@ -92,7 +92,7 @@ function WriteExam() {
         {view === "questions" && (
           <div className="flex flex-col gap-2">
             <div className="flex justify-between">
-              <h1 className="text-2xl">
+              <h1 className="text-2xl ">
                 {selectedQuestionIndex + 1} :{" "}
                 {questions[selectedQuestionIndex].name}
               </h1>
@@ -181,7 +181,7 @@ function WriteExam() {
                 </h1>
                 <h1 className="text-md">Pass/Fail :{result.verdict}</h1>
 
-                <div className="flex gap-2 mt-2">
+                <div className="flex gap-2 mt-2 ">
                   <button
                     className="primary-outlined-btn"
                     onClick={() => {
@@ -193,7 +193,7 @@ function WriteExam() {
                     Retake Exam
                   </button>
                   <button
-                    className="primary-contained-btn"
+                    className="primary-contained-btn max-sm:px-5"
                     onClick={() => {
                       setView("review");
                     }}

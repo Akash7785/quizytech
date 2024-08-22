@@ -19,6 +19,7 @@ function UserReports() {
       render: (text, record) => (
         <>{moment(record.createdAt).format("DD-MM-YYYY hh:mm:ss")}</>
       ),
+      responsive: ["xl"],
     },
     {
       title: "Total Marks",
@@ -29,6 +30,7 @@ function UserReports() {
       title: "Passing Marks",
       dataIndex: "correctAnswers",
       render: (text, record) => <>{record.exam.passingMarks}</>,
+      responsive: ["xl"],
     },
     {
       title: "Obtained Marks",

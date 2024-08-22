@@ -1,4 +1,4 @@
-import { Col, message, Row } from "antd";
+import { message } from "antd";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getAllExams } from "../../../apicalls/exams";
@@ -28,31 +28,34 @@ function Home() {
 
   return (
     user && (
-      <div>
+      <div className="w-full ">
         <PageTitle title={`Hi ${user.name}, Welcome to QuizyTech`} />
         <div className="divider"></div>
-        <Row gutter={[16, 16]}>
-          {exams.map((exam) => (
-            <Col span={6}>
-              <div className="card-lg flex flex-col gap-1 p-2">
-                <h1 className="text-2xl">{exam?.name}</h1>
 
+        <div className="flex gap-5  p-2 max-sm:flex max-sm:flex-col">
+          {exams.map((exam) => (
+            <div class="p-6 bg-white shadow-lg w-1/5 max-sm:w-full">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight">
+                {exam?.name}
+              </h5>
+              {/* <div className="divider p-0"></div> */}
+              <p class="mb-3 flex flex-col gap-1">
                 <h1 className="text-md">Category : {exam.category}</h1>
 
                 <h1 className="text-md">Total Marks : {exam.totalMarks}</h1>
                 <h1 className="text-md">Passing Marks : {exam.passingMarks}</h1>
                 <h1 className="text-md">Duration : {exam.duration}</h1>
+              </p>
 
-                <button
-                  className="primary-outlined-btn"
-                  onClick={() => navigate(`/user/write-exam/${exam._id}`)}
-                >
-                  Start Exam
-                </button>
-              </div>
-            </Col>
+              <button
+                className="primary-outlined-btn"
+                onClick={() => navigate(`/user/write-exam/${exam._id}`)}
+              >
+                Start Exam
+              </button>
+            </div>
           ))}
-        </Row>
+        </div>
       </div>
     )
   );

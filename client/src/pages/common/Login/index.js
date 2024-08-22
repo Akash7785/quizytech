@@ -10,7 +10,6 @@ function Login() {
   const onFinish = async (values) => {
     try {
       const response = await loginUser(values);
-      console.log("response", response);
 
       if (response.success) {
         message.success(response.message);
@@ -26,10 +25,12 @@ function Login() {
 
   return (
     <>
-      <div className="flex justify-center gap-10 items-center h-screen w-screen bg-primary">
-        <Welcome />
+      <div className="flex justify-center gap-10 items-center h-screen w-screen bg-primary max-sm:flex-col">
+        <div>
+          <Welcome />
+        </div>
         <div className="card w-400 p-3 bg-white">
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             <div className="flex">
               <h1 className="text-2xl">
                 QUIZYTECH - LOGIN <i class="ri-login-circle-line"></i>

@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 function Instructions({ examData, setView }) {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-center gap-5">
+    <div className="flex flex-col items-center gap-5 max-sm:px-3">
       <ul className="flex flex-col gap-1">
-        <h1 className="text-2xl underline">Instructions</h1>
+        <h1 className="text-2xl underline ">Instructions</h1>
         <li>Once submitted, you cannot change your answers.</li>
         <li>Do not refresh the page.</li>
         <li>
