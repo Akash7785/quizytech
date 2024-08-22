@@ -9,7 +9,6 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.23.4",
     "axios": "^0.27.2",
-    "cors": "^2.8.5",
     "framer-motion": "^11.3.28",
     "moment": "^2.29.4",
     "react": "^18.2.0",
@@ -44,7 +43,6 @@
       "last 1 safari version"
     ]
   },
-
   "devDependencies": {
     "tailwindcss": "^3.4.10"
   }

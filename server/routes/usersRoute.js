@@ -2,6 +2,9 @@ const router = require("express").Router();
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+dotenv.config();
+
 const authMiddleware = require("../middlewares/authMiddleware");
 
 // user registration
@@ -41,6 +44,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
+    console.log("inside login route");
     // check if user exists
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
